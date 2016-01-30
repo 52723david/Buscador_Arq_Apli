@@ -37,3 +37,15 @@
 #logo{
     padding: 1em 0em 0em 0em;
 }
+#boton{
+    margin: 0.7em 0em;
+}
+#status{
+    margin: 0.3em 0em;
+}
+#resuldata{
+    width: 82em;
+}
+#linea{
+    color: black;
+}

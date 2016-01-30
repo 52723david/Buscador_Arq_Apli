@@ -20,8 +20,8 @@ window.fbAsyncInit = function() {
 }
 
 //Redirecciones para después de iniciar sesión o salir de la aplicación
-var url_after_login = "http://localhost:8080/Buscador_Arq_Apli/boostrap/resultado.html";
-var url_after_logout = "http://localhost:8080/Buscador_Arq_Apli/boostrap/buscador1.html";
+var url_after_login = "http://localhost:8080/Buscador_Arq_Apli/boostrap/buscador2.jsp";
+var url_after_logout = "http://localhost:8080/Buscador_Arq_Apli/boostrap/buscador1.jsp";
   
 /* Función para el botón de iniciar sesión con Facebook */
 function FBBtnLogin(){
@@ -70,7 +70,7 @@ function FBBtnLogout(){
   } 
   //No tiene sesión abierta en Facebook
   else {
-	status.innerHTML = "No has iniciado sesión en Facebook";
+	//status.innerHTML = "No has iniciado sesión en Facebook";
   }
  });
 }
@@ -105,7 +105,7 @@ function getStateFromUser(){
 					id = response.id;
 					
 					// Incluimos un mensaje y la imagen del usuario
-					status.innerHTML = name + " has iniciado sesión correctamente <img src='//graph.facebook.com/"+id+"/picture'>";
+					status.innerHTML = "  <img src='//graph.facebook.com/"+id+"/picture'>";
 					});
 			}
 			// De lo contrario lo enviamos a login.html
