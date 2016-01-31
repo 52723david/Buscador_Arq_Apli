@@ -80,8 +80,15 @@
                                     contenido+="<tr>";
                                         contenido+="<th><h5>Palabras Clave</h5></th>";
                                         contenido+="<td><h6>"+" - "+contenido1[i]["keywords"]+"</h6></td>";
+                  
                                     contenido+="</tr>";
+                                    
                                 contenido+="</table>";
+                                        contenido+="<a href=\"javascript: void(1);\" onclick=\"window.open('http://www.facebook.com/sharer.php?u="+urlquery+"','ventanacompartir', 'toolbar=0, status=0, width=70, height=450');\"><img src='img/compartir_facebook.png' width='80' height='35'/> </a>";   
+                                     //  contenido+="<a href=\"javascript: void(0);\" onclick=\"window.open('http://www.facebook.com/sharer.php?u="+urlquery+"','ventanacompartir', 'toolbar=0, status=0, width=70, height=450');\"><img src='img/compartir_facebook.png' width='80' height='35'/> </a>";   
+                                  //    <button><img src="img/compartir_facebook.png"></button>
+                                    contenido+= "<IMG NAME='HTMLpoint' SRC='img/Favorito.jpeg' href='www.facebook.com' ALT='HTMLpoint' width='149' height='55' border='0'>";                                                              
+
                             contenido+="</vid>";
                         }
                         $("#resuldata").html(contenido);
@@ -328,6 +335,9 @@
             <!-- /.container -->  
         </div>
         <footer>
+            
+            
+            
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
