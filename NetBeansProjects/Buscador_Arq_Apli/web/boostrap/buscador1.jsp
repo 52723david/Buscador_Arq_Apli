@@ -14,6 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
@@ -27,13 +28,7 @@
         <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
         <script src="js/facebook.js" type="text/javascript"></script>
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
+       
         <!-- ========================   BUSCARDOR   =======================================-->
         <script>
             function buscar() {
@@ -54,7 +49,7 @@
                     success: function (data) {
                         //var divresult = document.getElementById("resuldata");
                         //divresult.innerHTML = data;
-                        var contenido="<h6>Resultados de busqueda: "+data.response["numFound"]+"</h6><br><h6>Tiempo que tardó la busqueda: "+data.responseHeader["QTime"]+"mseg</h6>";
+                        var contenido="<h2>Resultados de busqueda: "+data.response["numFound"]+"</h2><br><h2>Tiempo que tardó la busqueda: "+data.responseHeader["QTime"]+" mseg</h2>";
                         var contenido1=data.response.docs;
                         for (i in contenido1) {
                             //contenido+=contenido1[i]["title"]+"<br>";
@@ -80,15 +75,11 @@
                                     contenido+="<tr>";
                                         contenido+="<th><h5>Palabras Clave</h5></th>";
                                         contenido+="<td><h6>"+" - "+contenido1[i]["keywords"]+"</h6></td>";
-                  
                                     contenido+="</tr>";
-                                    
                                 contenido+="</table>";
-                                        contenido+="<a href=\"javascript: void(1);\" onclick=\"window.open('http://www.facebook.com/sharer.php?u="+urlquery+"','ventanacompartir', 'toolbar=0, status=0, width=70, height=450');\"><img src='img/compartir_facebook.png' width='80' height='35'/> </a>";   
-                                     //  contenido+="<a href=\"javascript: void(0);\" onclick=\"window.open('http://www.facebook.com/sharer.php?u="+urlquery+"','ventanacompartir', 'toolbar=0, status=0, width=70, height=450');\"><img src='img/compartir_facebook.png' width='80' height='35'/> </a>";   
-                                  //    <button><img src="img/compartir_facebook.png"></button>
-                                    contenido+= "<IMG NAME='HTMLpoint' SRC='img/Favorito.jpeg' href='www.facebook.com' ALT='HTMLpoint' width='149' height='55' border='0'>";                                                              
-
+                                       contenido+="<a href=\"javascript: void(1);\" onclick=\"window.open('http://www.facebook.com/sharer.php?u="+urlquery+"','ventanacompartir', 'toolbar=0, status=0, width=70, height=450');\"><img src='img/compartir_facebook.png' width='80' height='35'/> </a>";   
+                                     
+                                    contenido+= "<IMG NAME='HTMLpoint' SRC='img/Favorito.jpeg' href='www.facebook.com' ALT='HTMLpoint' width='149' height='55' border='0'>";
                             contenido+="</vid>";
                         }
                         $("#resuldata").html(contenido);
@@ -191,14 +182,7 @@
                                                             <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="Teléfono o Celular" name="telefono">
                                                         </div>
                                                     </div>
-                                                    <!--<div class="form-group">
-                                                        <label for="exampleInputPassword1">Password</label>
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
-                                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                                        </div>
-                                                    </div>
-                                                    <hr/>-->
+                                                  
 
                                                     <button type="button" class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-arrow-left"></span> Atras</button>
                                                     <button type="submit" class="btn btn-primary" ><span class="glyphicon glyphicon-lock" ></span> Guardar</button>
@@ -223,17 +207,15 @@
 
         <!-- Header -->
         <a name="about"></a>
-        <div class="intro-header">
-            <div class="container" id="contenedor">
+    <div class="intro-header">
+        <div class="container">
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="intro-message">
-
-                            <!-- ===========================================================================-->
-                            <h1>Arquitectura de Aplicaciones</h1>
+            <div class="low">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Arquitectura de Aplicaciones</h1>
                             <h3>Escuela de Ciencias de la Computación</h3>
-                            <hr class="intro-divider">
+                        <hr class="intro-divider">
                             <center>
                                 <!--<div class="col-lg-6">
                                     <div class="input-group">
@@ -247,42 +229,18 @@
                                     <label for="busc"></label>
                                     <input  id="busc" class="form-control" type="text" name="busc" placeholder="Ingrese busqueda" required title="Cadena de busqueda">      
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" onclick="buscar()" type="button">Buscar</button>
+                                        <button id="btn_busc" class="btn btn-default" onclick="buscar()" type="button">Buscar</button>
                                     </span>
-                                    <!--
-                                    <label for="facet">Faceta:</label><br>
-                                    <input id="facet" class="controlsclass" type="text" name="facet" placeholder="Ingrese faceta" required title="Cadena de faceta"> <br>
-                                    <label for="numRes">Numero de registros:</label>
-                                    <input id="numRes" class="controlsclass" type="number" name="numRes" max="100" min="1" step ="1" required> <br>
-                                    -->
+                                    
                                 </div>
                             </center>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- /.container -->
-
-        </div>
-
-        <a  name="contact"></a>
-        <!--<div class="banner">
-
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h2>Connect to Start Bootstrap:</h2>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="list-inline banner-social-buttons">
+<br>              
+                        <ul id="btn_Social" class="list-inline intro-social-buttons">
                             <li>
                                 <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                             </li>
                             <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                                <a href="https://github.com/52723david/Buscador_Arq_Apli/wiki/Buscador" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                             </li>
                             <li>
                                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
@@ -290,14 +248,15 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
+
+        </div>
         <!-- /.container -->
 
-        <!--</div>-->
-        <!-- /.banner -->
+    </div>
 
-        <!-- Footer -->
+        <a  name="contact"></a>
+       
         <a  name="services"></a>
         <div class="content-section-b">
 
@@ -305,21 +264,26 @@
 
                 <div class="row">
 
-                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6" id="resultadot">
+                <div id="resuldata"></div> <!--RESULTADO DE LA BUSQUEDA-->
+                </div>
+            </div>
+            <!-- /.container -->  
+        </div>
+        
+        
+<footer>
+            <a  name="contact"></a>
+    <div class="banner">
 
-                    </div>
-                    <div class="col-lg-5 col-sm-pull-6  col-sm-12">
-                        <div id="resuldata"></div>
-                        <hr class="section-heading-spacer">
-                        <div class="clearfix"></div>
-                        <h2 class="section-heading">-Resultados de la Busqueda-</h2>
-                        <!--<p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>-->
-                    </div>
+        <div class="container">
 
-                    <div id="resuldata"></div> <!--RESULTADO DE LA BUSQUEDA-->
+            <div class="row">
+                <div class="col-lg-6">
+                 <p class="copyright text-muted small">Copyright &copy; UTPL 2016. Todos los derechos reservados</p>
 
                 </div>
-                <ul class="list-inline intro-social-buttons">
+                <div class="col-lg-6">
+                   <ul class="list-inline intro-social-buttons">
                     <li>
                         <a href="https://www.facebook.com" class="btn btn-default btn-lg" id="a" target="_blank"><i class="fa fa-facebook fa-fw"></i> <span class="network-name"><img src="img/faceb.png" WIDTH="76" HEIGHT="30"></span></a>
                     </li>
@@ -330,38 +294,14 @@
                         <a href="http://utpl.edu.ec/" class="btn btn-default btn-lg" id="a" target="_blank"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name"><img src="img/utpl.png" WIDTH="76" HEIGHT="30"></span></a>
                     </li>
                 </ul>
-
-            </div>
-            <!-- /.container -->  
-        </div>
-        <footer>
-            
-            
-            
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#">Home</a>
-                            </li>
-                            <li class="footer-menu-divider">&sdot;</li>
-                            <li>
-                                <a href="#about">About</a>
-                            </li>
-                            <li class="footer-menu-divider">&sdot;</li>
-                            <li>
-                                <a href="#services">Services</a>
-                            </li>
-                            <li class="footer-menu-divider">&sdot;</li>
-                            <li>
-                                <a href="#contact">Contact</a>
-                            </li>
-                        </ul>
-                        <p class="copyright text-muted small">Copyright &copy; Universidad Técnica Particular de Loja | 2016. Todos los derechos reservados</p>
-                    </div>
                 </div>
             </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+           
         </footer>
 
         <!-- jQuery -->
