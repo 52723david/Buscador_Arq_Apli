@@ -94,6 +94,41 @@
                 FBLogin();
             }
         </script>
+        
+        
+        <script>
+        function busqueda(tiempo, urlquery, id){
+            var fecha = new Date();
+            var hora = fecha.getHours();
+            var minuto = fecha.getMinutes();
+            var segundo = fecha.getSeconds();
+            if (hora < 10) {hora = "0" + hora}
+            if (minuto < 10) {minuto = "0" + minuto}
+            if (segundo < 10) {segundo = "0" + segundo}
+
+            var hor = hora + ":" + minuto + ":" + segundo;
+            var fec = fecha.getDate() + "/" + (fecha.getMonth() +1) + "/" + fecha.getFullYear();
+            var navegador=navigator.appVersion;
+            $.ajax({
+                url: "http://localhost:8080/Buscador/webresources/controlador.busqueda",
+                type: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                //data: JSON.stringify({"FBus": fec, "HBus": hor, "TBus": tiempo, "idBus": 17, "idUsu":id, "navegador": navegador, "urlBus":urlquery}),
+                data: JSON.stringify({"id_bus": 17, "url_bus":urlquery, "f_bus": fec, "h_bus": hor, "t_bus": tiempo,  "navegador": navegador, "id_usu":id}),                
+                success: function (data, textStatus, jqXHR) {
+                    //alert("Gracias por registrarse");
+                    //window.location.href = url_after_login;
+                },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("Tengo problemas para almacenar tus datos");
+                        //window.location.href = url_after_login;
+                    }
+                });
+        }
+    
+    </script>
+    
     </head>
 
     <body>
